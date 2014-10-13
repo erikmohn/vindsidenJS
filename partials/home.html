@@ -1,0 +1,8 @@
+<div class="row cardContainer">
+    <div class="span3 card" data-ng-repeat="station in stations | orderBy:'Name'">
+        <div class="cardHeader"><a href="#station/{{station.StationID}}">{{station.Name}} - {{station.City}}</a></div>
+        <div class="cardBody">{{station.Copyright}}</div>
+    </div>
+</div>
+
+

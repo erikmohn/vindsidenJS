@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact build-on-make="true" name="VindsidenJS">
+    <output-path>$PROJECT_DIR$/out/artifacts/VindsidenJS</output-path>
+    <root id="root">
+      <element id="module-output" name="VindsidenJS" />
+    </root>
+  </artifact>
+</component>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html ng-app="vindsiden">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Bootstrap -->
+    <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet" media="screen">
+
+    <!-- Custom styles for this template -->
+    <link href="bootstrap/custom.css" rel="stylesheet">
+
+    <script src="js/angular.js"></script>
+
+    <script src="http://code.highcharts.com/adapters/standalone-framework.js"></script>
+    <script src="http://code.highcharts.com/highcharts.js"></script>
+    <script src="http://code.highcharts.com/highcharts-more.js"></script>
+    <script src="http://code.highcharts.com/modules/exporting.js"></script>
+
+    <script src="js/angular-route.min.js"></script>
+    <script src="js/angular-resource.min.js"></script>
+
+    <script src="js/vindsiden.js"></script>
+    <script src="js/services/station.service.js"></script>
+    <script src="js/services/stations.service.js"></script>
+    <script src="js/services/measurements.service.js"></script>
+
+    <script src="js/controllers/home.controller.js"></script>
+    <script src="js/controllers/about.controller.js"></script>
+    <script src="js/controllers/station.controller.js"></script>
+
+    <script src="js/charts/station.wind.chart.js"></script>
+</head>
+<body >
+
+
+<div class="container">
+    <div class="header">
+        <ul class="nav nav-pills pull-right">
+            <li><a href="#about">Om vindsiden</a></li>
+            <li><a href="#settings">Instillinger</a></li>
+        </ul>
+        <h3 class="text-muted"><a href="#home">vindsiden.no</a></h3>
+    </div>
+
+    <div class="jumbotron">
+        <div ng-view> </div>
+    </div>
+
+    <div class="footer">
+        <p>&copy; Vindsiden 2014</p>
+    </div>
+
+</div>
+</body>
+</html>
