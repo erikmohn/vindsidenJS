@@ -1,5 +1,27 @@
 
-<div id="container" style="min-width: 310px; height: 400px; margin: 0 auto"></div>
+<ul class="nav nav-tabs" role="tablist">
+    <li class="active"><a href="#station/{{station.StationID}}">Graph</a></li>
+    <li><a href="#stationgrid/{{station.StationID}}">Grid</a></li>
+    <li><a href="#map/{{station.StationID}}">Map</a></li>
+</ul>
+<div id="container" style="min-width: 456px; height: 400px; margin: 0 auto"></div>
 
-<img ng-src="{{imageUrl}}">
+
+<div class="panel-group" id="accordion">
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h4 class="panel-title">
+                <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne">
+                    Værvarsel fra yr.no
+                </a>
+            </h4>
+        </div>
+        <div id="collapseOne" class="panel-collapse collapse in">
+            <div class="panel-body">
+                <img ng-src="{{imageUrl}}">
+            </div>
+        </div>
+    </div>
+</div>
+
 

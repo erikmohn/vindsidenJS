@@ -6,9 +6,8 @@ vindsidenControllers.controller('StationController', ['$scope', '$routeParams', 
     $scope.station = Station.get({stationId: $routeParams.stationId}, function(station) {
         $scope.imageUrl = station.MeteogramImage;
         $scope.station = station;
+        drawStationWindChart([station]);
     });
 
-    Measurements.query({stationId: $routeParams.stationId}, function(measurements) {
-        drawStationWindChart(measurements);
-    });
+
 }]);

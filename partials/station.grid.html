@@ -1,0 +1,14 @@
+<ul class="nav nav-tabs" role="tablist">
+    <li><a href="#station/{{station.StationID}}">Graph</a></li>
+    <li class="active"><a href="#stationgrid/{{station.StationID}}">Grid</a></li>
+</ul>
+
+
+<table class="table">
+        <tr data-ng-repeat="gridMeasurement in gridMeasurements">
+            <td>{{gridMeasurement.WindAvg}}</td>
+            <td>bar</td>
+            <td>foobar</td>
+        </tr>
+</table>
+

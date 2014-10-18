@@ -100,3 +100,5 @@ body {
     width: 225px;
     margin-bottom: 20px;
 }
+
+.angular-google-map-container { height: 400px; }

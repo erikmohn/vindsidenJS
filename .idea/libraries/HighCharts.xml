@@ -1,0 +1,12 @@
+<component name="libraryTable">
+  <library name="HighCharts" type="javaScript">
+    <CLASSES>
+      <root url="file://$PROJECT_DIR$/js/standalone-framework.js" />
+      <root url="file://$PROJECT_DIR$/js/highcharts.js" />
+      <root url="file://$PROJECT_DIR$/js/highcharts-more.js" />
+      <root url="file://$PROJECT_DIR$/js/exporting.js" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

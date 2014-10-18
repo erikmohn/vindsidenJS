@@ -2,7 +2,14 @@
  * Created by erik.mohn on 12.10.2014.
  */
 //Define an angular module for our app
-var vindsiden = angular.module('vindsiden', ['ngRoute', 'ngResource','vindsidenControllers', 'vindsidenServices' ]);
+var vindsiden = angular.module('vindsiden',
+    [
+        'ngRoute',
+        'ngResource',
+        'vindsidenControllers',
+        'vindsidenServices',
+        'google-maps'.ns()
+    ]);
 
 vindsiden.config(['$routeProvider',
     function($routeProvider) {
@@ -23,6 +30,14 @@ vindsiden.config(['$routeProvider',
                 templateUrl: 'partials/station.html',
                 controller: 'StationController'
             }).
+            when('/stationgrid/:stationId', {
+                templateUrl: 'partials/station.grid.html',
+                controller: 'StationGridController'
+            }).
+            when('/map/:stationId', {
+                templateUrl: 'partials/map.html',
+                controller: 'MapController'
+            }).
             otherwise({
                 redirectTo: '/home'
             });
@@ -31,11 +46,5 @@ vindsiden.config(['$routeProvider',
 var vindsidenControllers = angular.module('vindsidenControllers', []);
 
 var vindsidenServices = angular.module('vindsidenServices', ['ngResource']);
-
-
-
-
-
-
 
 

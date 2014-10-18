@@ -5,6 +5,7 @@
     <content url="file://$MODULE_DIR$" />
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="library" name="AngularJS" level="application" />
+    <orderEntry type="library" name="HighCharts" level="project" />
   </component>
 </module>
 
