@@ -8,37 +8,13 @@ function removeDecimals(num) {
 
 function drawStationWindChart(station) {
 
-    var chart = new Highcharts.Chart({
-        chart: {
-            renderTo: 'container'
-        },
-        title: {
-            text: ''
-        },
-        xAxis: {
-            type: 'datetime'
-        },
-        yAxis: {
-            title: {
-                text: '[m/s]'
-            }
-        },
-        tooltip: {
-            crosshairs: true,
-            shared: true,
-            valueSuffix: 'm/s'
-        },
-        legend: {
-        },
-        series: {
-            data: []
-        }
-    });
+
+/*
      i = 5;
     angular.forEach(station , function(station) {
         addSeriesFrom(station, chart, i)
         i++;
-    });
+    });*/
 
 
 

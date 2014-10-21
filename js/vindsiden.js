@@ -8,7 +8,8 @@ var vindsiden = angular.module('vindsiden',
         'ngResource',
         'vindsidenControllers',
         'vindsidenServices',
-        'google-maps'.ns()
+        'google-maps'.ns(),
+        'highcharts-ng'
     ]);
 
 vindsiden.config(['$routeProvider',

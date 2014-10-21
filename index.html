@@ -3,12 +3,8 @@
 <html ng-app="vindsiden">
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet" media="screen">
-
-    <link href="bootstrap/custom.css" rel="stylesheet">
-
-
+    <link href="//netdna.bootstrapcdn.com/bootswatch/2.3.2/flatly/bootstrap.min.css" rel="stylesheet" media="screen">
+    <link href="css/custom.css" rel="stylesheet">
 </head>
 <body >
 
@@ -33,15 +29,16 @@
 </div>
 
 <script src='//maps.googleapis.com/maps/api/js?sensor=false'></script>
-
 <script src="js/angular.js"></script>
 <script src="js/angular-route.min.js"></script>
 <script src="js/angular-resource.min.js"></script>
 
-<script src="js/standalone-framework.js"></script>
+<script src="js/jquery-2.1.0.min.js"></script>
 <script src="js/highcharts.js"></script>
 <script src="js/highcharts-more.js"></script>
-<script src="js/exporting.js"></script>
+
+<script src="js/bootstrap.min.js"></script>
+<script src="js/lib/highcharts-ng.js"></script>
 
 <script src="//cdnjs.cloudflare.com/ajax/libs/lodash.js/2.4.1/lodash.js"></script>
 <script src="http://rawgit.com/angular-ui/angular-google-maps/master/dist/angular-google-maps.js"></script>
@@ -49,6 +46,10 @@
 
 
 <script src="js/vindsiden.js"></script>
+
+<script src="js/charts/station.wind.chart.js"></script>
+<script src="js/charts/wind.rose.js"></script>
+
 
 <script src="js/services/station.service.js"></script>
 <script src="js/services/stations.service.js"></script>
@@ -58,12 +59,6 @@
 <script src="js/controllers/about.controller.js"></script>
 <script src="js/controllers/station.controller.js"></script>
 <script src="js/controllers/station.grid.controller.js"></script>
-
-<script src="js/charts/station.wind.chart.js"></script>
-<script src="js/charts/wind.rose.js"></script>
-
-
-
 <script src ="js/controllers/map.controller.js"></script>
 </body>
 </html>
