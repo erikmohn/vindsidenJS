@@ -9,7 +9,7 @@ vindsidenServices.factory('Stations', ['$resource',
 
         var dateString =  currentDate.getYear() +'-' + (currentDate.getMonth() + 1) + '-' + currentDate.getDay();
 
-        return $resource('http://vindsiden.no/api/stations' + '?'+ dateString +'&n=100', {}, {
+        return $resource('http://vindsiden.no/api/stations' + '?'+ dateString, {}, {
             query: {method:'GET', params:{stationId:'stations'}, isArray:true}
         });
     }]);
