@@ -8,8 +8,8 @@ var vindsiden = angular.module('vindsiden',
         'ngResource',
         'vindsidenControllers',
         'vindsidenServices',
-        'google-maps'.ns(),
-        'highcharts-ng'
+        'highcharts-ng',
+        'uiGmapgoogle-maps'
     ]);
 
 vindsiden.config(['$routeProvider',
@@ -22,6 +22,10 @@ vindsiden.config(['$routeProvider',
             when('/about', {
                 templateUrl: 'partials/about.html',
                 controller: 'AboutController'
+            }).
+            when('/fullmap', {
+                templateUrl: 'partials/fullmap.html',
+                controller: 'FullMapController'
             }).
             when('/settings', {
                 templateUrl: 'partials/settings.html',
