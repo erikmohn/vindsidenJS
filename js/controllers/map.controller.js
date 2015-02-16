@@ -1,112 +1,65 @@
 /**
- * Created by erik.mohn on 16.10.2014.
+ * Created by erik.mohn on 21.10.2014.
  */
-
-vindsidenControllers.controller('MapController', ['$scope', '$routeParams', 'Station', function($scope, $routeParams, Station) {
+vindsidenControllers.controller('MapController', ['$scope', '$routeParams', 'Stations', function($scope, $routeParams, Stations) {
+    console.log('Fetching stations')
+    $scope.stations = Stations.query();
 
     $scope.map = {
         center: {
             latitude: 65,
             longitude: 12
         },
-        zoom: 4
-
+        zoom: 4,
+        bounds: {}
     };
+    $scope.options = {scrollwheel: false};
 
-    $scope.clicked = function() {
-      alert('Button clicked!');
-    };
+    $scope.stationMarkers = [];
 
-    $scope.marker = {
-        coords: {
-            latitude: 59.3037,
-            longitude: 10.689869
-        },
-        show: false,
-        id: 0
-    };
+    $scope.$watch(function() { return $scope.stations; }, function() {
+        // Get the bounds from the map once it's loaded
+        $scope.$watch(function() { return $scope.map.bounds; }, function(nv, ov) {
 
-
-    $scope.windowOptions = {
-        visible: false
-    };
-
-    $scope.onClick = function() {
-        $scope.windowOptions.visible = !$scope.windowOptions.visible;
-
-    };
-
-    $scope.closeClick = function() {
-        $scope.windowOptions.visible = false;
-    };
-
-    $scope.title = "Window Title!";
-
-
-    $scope.station = Station.get({stationId: $routeParams.stationId}, function(station) {
-        $scope.imageUrl = station.MeteogramImage;
-        $scope.station = station;
-
-
-    var average = station.Data.map(function (m) {return [ new Date(m.Time).valueOf(), removeDecimals(m.WindAvg)]; });
-    var series =
-    {
-        name: station.Name,
-        data: average.reverse(),
-        zIndex: 1,
-        marker: {
-            enabled : false,
-            radius : 2,
-            lineWidth: 2,
-            lineColor: Highcharts.getOptions().colors[0]
-        }
-    };
-
-    var range = station.Data.map(function (m) { return [new Date(m.Time).valueOf(), removeDecimals(m.WindMin), removeDecimals(m.WindMax)]; });
-
-    var ranges =
-    {
-        name: 'Max/min',
-        data: range.reverse(),
-        type: 'arearange',
-        lineWidth: 0,
-        color: Highcharts.getOptions().colors[0],
-        fillOpacity: 0.3,
-        zIndex: 0
-    };
-
-
-    $scope.roseConfig = {
-        chart: {
-            spacingBottom: 0,
-            spacingTop: 0,
-            spacingLeft: 0,
-            spacingRight: 0,
-            width: 50,
-            height: 50
-        },
-        title: {
-          text: ''
-        },
-        navigation: {
-            buttonOptions: {
-                enabled: false
+            if (!ov.southwest && nv.southwest && $scope.stationMarkers.length == 0) {
+                createMarkers($scope);
             }
-        },
-        xAxis: {
-            type: 'datetime'
-        },
-        yAxis: {
-            title: {
-                text: '[m/s]'
-            }
-        },
-
-        series: [
-            series,
-            ranges
-        ]
-    }
+        }, true);
     });
+
+    $scope.$watch(function() {return $scope.stations;}, function() {
+       if ($scope.stations != null && $scope.stations.length > 0 && $scope.stationMarkers.length == 0) {
+            createMarkers($scope);
+       }
+    },true);
+
 }]);
+
+function createMarkers($scope) {
+    console.log('Stations ready!');
+
+    var createMarkerForStation = function (station) {
+
+        var ret = {
+            id: station.StationID,
+            latitude: station.Latitude,
+            longitude: station.Longitude,
+            title: station.Name,
+            show: false,
+            image: station.Logo
+        };
+        ret.onClick = function() {
+            ret.show = !ret.show;
+        };
+        return ret;
+    };
+
+    var markers = [];
+    angular.forEach($scope.stations , function(station, key) {
+        if (station.Show){
+            markers.push(createMarkerForStation(station))
+        }
+    });
+    $scope.stationMarkers = markers;
+};
 

@@ -1,7 +1,6 @@
 /**
  * Created by erik.mohn on 12.10.2014.
  */
-//Define an angular module for our app
 var vindsiden = angular.module('vindsiden',
     [
         'ngRoute',
@@ -15,20 +14,12 @@ var vindsiden = angular.module('vindsiden',
 vindsiden.config(['$routeProvider',
     function($routeProvider) {
         $routeProvider.
-            when('/home', {
-                templateUrl: 'partials/home.html',
-                controller: 'HomeController'
+            when('/map', {
+                templateUrl: 'partials/map.html',
+                controller: 'MapController'
             }).
             when('/about', {
                 templateUrl: 'partials/about.html',
-                controller: 'AboutController'
-            }).
-            when('/fullmap', {
-                templateUrl: 'partials/fullmap.html',
-                controller: 'FullMapController'
-            }).
-            when('/settings', {
-                templateUrl: 'partials/settings.html',
                 controller: 'AboutController'
             }).
             when('/station/:stationId', {
@@ -39,12 +30,8 @@ vindsiden.config(['$routeProvider',
                 templateUrl: 'partials/station.grid.html',
                 controller: 'StationGridController'
             }).
-            when('/map/:stationId', {
-                templateUrl: 'partials/map.html',
-                controller: 'MapController'
-            }).
             otherwise({
-                redirectTo: '/home'
+                redirectTo: '/map'
             });
     }]);
 
